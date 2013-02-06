@@ -103,25 +103,52 @@
 
     // flip the entire view to make everything right side up
     [self.view setTransform:CGAffineTransformMakeScale(1, -1)];
-
-
 }
 
--(void)tryLiveFeed:(id)sender
+-(void)tryLiveFeedDetection:(id)sender
 {
     LiveFeedViewController *lVC = [[LiveFeedViewController alloc] initWithNibName:@"LiveFeedViewController" bundle:nil];
     [self presentModalViewController:lVC animated:YES];
 }
 
--(void) addLiveFeedButton
+-(void)tryLiveFeedRecognition:(id)sender
 {
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +20, self.view.frame.size.height - 60, 70, 40)];
-    [btn setTitle:@"Try Live" forState:UIControlStateNormal];
-    [self.view addSubview:btn];
+    //TODO:
+}
+
+-(void)tryStaticRecognition:(id)sender
+{
+    //TODO:
+}
+
+-(void) addActionButtons
+{
     [self.view setBackgroundColor:[UIColor greenColor]];
-    [btn setBackgroundColor:[UIColor redColor]];
-    [btn addTarget:self action:@selector(tryLiveFeed:) forControlEvents:UIControlEventTouchUpInside];
-    [btn setTransform:CGAffineTransformMakeScale(1, -1)];
+
+    // Try live feed face detection button
+    UIButton *btnLiveFeedDetection = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +20, self.view.frame.size.height - 50, self.view.frame.size.width -40, 40)];
+    [btnLiveFeedDetection setTitle:@"Try Live Feed Face Detection" forState:UIControlStateNormal];
+    [self.view addSubview:btnLiveFeedDetection];
+    [btnLiveFeedDetection setBackgroundColor:[UIColor redColor]];
+    [btnLiveFeedDetection addTarget:self action:@selector(tryLiveFeedDetection:) forControlEvents:UIControlEventTouchUpInside];
+    [btnLiveFeedDetection setTransform:CGAffineTransformMakeScale(1, -1)];
+
+    // Try live feed face Recognition button
+    UIButton *btnLiveFeedRecognition = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +20, self.view.frame.size.height - 95, self.view.frame.size.width -40, 40)];
+    [btnLiveFeedRecognition setTitle:@"Try Live Feed Face Recognition" forState:UIControlStateNormal];
+    [self.view addSubview:btnLiveFeedRecognition];
+    [btnLiveFeedRecognition setBackgroundColor:[UIColor redColor]];
+    [btnLiveFeedRecognition addTarget:self action:@selector(tryLiveFeedRecognition:) forControlEvents:UIControlEventTouchUpInside];
+    [btnLiveFeedRecognition setTransform:CGAffineTransformMakeScale(1, -1)];
+
+    // Try static face Recognition button
+    UIButton *btnRecognition = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +20, self.view.frame.size.height - 140, self.view.frame.size.width -40, 40)];
+    [btnRecognition setTitle:@"Try Static Face Recognition" forState:UIControlStateNormal];
+    [self.view addSubview:btnRecognition];
+    [btnRecognition setBackgroundColor:[UIColor redColor]];
+    [btnRecognition addTarget:self action:@selector(tryStaticRecognition:) forControlEvents:UIControlEventTouchUpInside];
+    [btnRecognition setTransform:CGAffineTransformMakeScale(1, -1)];
+
 }
 
 - (void)didReceiveMemoryWarning
@@ -137,7 +164,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self startFaceDetection];
-    [self addLiveFeedButton];
+    [self addActionButtons];
 }
 
 - (void)viewDidUnload
@@ -150,6 +177,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    [self.view setTransform:CGAffineTransformMakeScale(1, -1)];
 }
 
 - (void)viewDidAppear:(BOOL)animated
