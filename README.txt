@@ -1,0 +1,1 @@
+A plain simple sample project to demonstrate face detection using CoreImage APIs.
