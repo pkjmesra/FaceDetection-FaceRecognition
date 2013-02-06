@@ -42,65 +42,11 @@
     //
     //**/
 
-#import <CoreImage/CoreImage.h>
-#import <CoreImage/CoreImage.h>
-#import <QuartzCore/QuartzCore.h>
-
+#import "LiveFeedViewController.h"
 
 #import "ViewController.h"
 
 @implementation ViewController
-
-- (void)markLeftEye:(CGFloat)faceWidth faceFeature:(CIFaceFeature *)faceFeature
-{
-    if(faceFeature.hasLeftEyePosition)
-    {
-        // create a UIView with a size based on the width of the face
-        UIView* leftEyeView = [[UIView alloc] initWithFrame:CGRectMake(faceFeature.leftEyePosition.x-faceWidth*0.15, faceFeature.leftEyePosition.y-faceWidth*0.15, faceWidth*0.3, faceWidth*0.3)];
-        // change the background color of the eye view
-        [leftEyeView setBackgroundColor:[[UIColor greenColor] colorWithAlphaComponent:0.3]];
-        // set the position of the leftEyeView based on the face
-        [leftEyeView setCenter:faceFeature.leftEyePosition];
-        // round the corners
-        leftEyeView.layer.cornerRadius = faceWidth*0.15;
-        // add the view to the view
-        [self.view addSubview:leftEyeView];
-    }
-}
-
-- (void)markRightEye:(CGFloat)faceWidth faceFeature:(CIFaceFeature *)faceFeature
-{
-    if(faceFeature.hasRightEyePosition)
-    {
-        // create a UIView with a size based on the width of the face
-        UIView* leftEye = [[UIView alloc] initWithFrame:CGRectMake(faceFeature.rightEyePosition.x-faceWidth*0.15, faceFeature.rightEyePosition.y-faceWidth*0.15, faceWidth*0.3, faceWidth*0.3)];
-        // change the background color of the eye view
-        [leftEye setBackgroundColor:[[UIColor greenColor] colorWithAlphaComponent:0.3]];
-        // set the position of the rightEyeView based on the face
-        [leftEye setCenter:faceFeature.rightEyePosition];
-        // round the corners
-        leftEye.layer.cornerRadius = faceWidth*0.15;
-        // add the new view to the view
-        [self.view addSubview:leftEye];
-    }
-}
-
-- (void)markMouth:(CGFloat)faceWidth faceFeature:(CIFaceFeature *)faceFeature
-{
-    if(faceFeature.hasMouthPosition)
-    {
-        // create a UIView with a size based on the width of the face
-        UIView* mouth = [[UIView alloc] initWithFrame:CGRectMake(faceFeature.mouthPosition.x-faceWidth*0.2, faceFeature.mouthPosition.y-faceWidth*0.2, faceWidth*0.4, faceWidth*0.4)];
-        // change the background color for the mouth to green
-        [mouth setBackgroundColor:[[UIColor greenColor] colorWithAlphaComponent:0.3]];
-        // set the position of the mouthView based on the face
-        [mouth setCenter:faceFeature.mouthPosition];
-        // round the corners
-        mouth.layer.cornerRadius = faceWidth*0.2;
-        // add the new view to the view
-        [self.view addSubview:mouth];
-    }
-}
 
 -(void)detectAndMarkFace:(UIImageView *)facePicture
 {
@@ -161,6 +107,23 @@
 
 }
 
+-(void)tryLiveFeed:(id)sender
+{
+    LiveFeedViewController *lVC = [[LiveFeedViewController alloc] initWithNibName:@"LiveFeedViewController" bundle:nil];
+    [self presentModalViewController:lVC animated:YES];
+}
+
+-(void) addLiveFeedButton
+{
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +20, self.view.frame.size.height - 60, 70, 40)];
+    [btn setTitle:@"Try Live" forState:UIControlStateNormal];
+    [self.view addSubview:btn];
+    [self.view setBackgroundColor:[UIColor greenColor]];
+    [btn setBackgroundColor:[UIColor redColor]];
+    [btn addTarget:self action:@selector(tryLiveFeed:) forControlEvents:UIControlEventTouchUpInside];
+    [btn setTransform:CGAffineTransformMakeScale(1, -1)];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
@@ -174,6 +137,7 @@
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
     [self startFaceDetection];
+    [self addLiveFeedButton];
 }
 
 - (void)viewDidUnload

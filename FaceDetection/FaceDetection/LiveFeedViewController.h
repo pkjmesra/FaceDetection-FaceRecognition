@@ -1,6 +1,7 @@
 //
-//  ViewController.h
+//  LiveFeedViewController.h
 //  FaceDetection
+//
 /**///////////////////////////////////////////////////////////////////////////////////////
     //
     //  IMPORTANT: READ BEFORE DOWNLOADING, COPYING, INSTALLING OR USING.
@@ -44,8 +45,13 @@
 
 
 #import <UIKit/UIKit.h>
+#import <AVFoundation/AVFoundation.h>
+
 #import "FaceViewController.h"
 
-@interface ViewController : FaceViewController
+@interface LiveFeedViewController : FaceViewController 
+    <UIGestureRecognizerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
+
+@property (nonatomic, weak) IBOutlet UIView *previewView;
 
 @end

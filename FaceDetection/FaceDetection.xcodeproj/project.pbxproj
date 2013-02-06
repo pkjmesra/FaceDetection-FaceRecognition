@@ -19,6 +19,13 @@
 		5AB4D01014610A0C00316888 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB4D00F14610A0C00316888 /* CoreImage.framework */; };
 		5AB4D01214610C3100316888 /* Priyanka.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AB4D01114610C3100316888 /* Priyanka.jpg */; };
 		E3FE902316C21E3500700D53 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3FE902216C21E3500700D53 /* Default-568h@2x.png */; };
+		E3FE902E16C2317600700D53 /* LiveFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FE902D16C2317600700D53 /* LiveFeedViewController.m */; };
+		E3FE903116C231FC00700D53 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3FE903016C231FC00700D53 /* AVFoundation.framework */; };
+		E3FE903316C2324300700D53 /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3FE903216C2324300700D53 /* CoreMedia.framework */; };
+		E3FE903516C2326800700D53 /* CoreVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3FE903416C2326800700D53 /* CoreVideo.framework */; };
+		E3FE903716C2345600700D53 /* border.png in Resources */ = {isa = PBXBuildFile; fileRef = E3FE903616C2345600700D53 /* border.png */; };
+		E3FE903B16C238B200700D53 /* LiveFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FE903916C238B200700D53 /* LiveFeedViewController.xib */; };
+		E3FE903E16C23C0600700D53 /* FaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FE903D16C23C0600700D53 /* FaceViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,7 +45,16 @@
 		5AB4D00D14610A0600316888 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5AB4D00F14610A0C00316888 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		5AB4D01114610C3100316888 /* Priyanka.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Priyanka.jpg; sourceTree = "<group>"; };
-		E3FE902216C21E3500700D53 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		E3FE902216C21E3500700D53 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
+		E3FE902C16C2317600700D53 /* LiveFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveFeedViewController.h; sourceTree = "<group>"; };
+		E3FE902D16C2317600700D53 /* LiveFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveFeedViewController.m; sourceTree = "<group>"; };
+		E3FE903016C231FC00700D53 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		E3FE903216C2324300700D53 /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		E3FE903416C2326800700D53 /* CoreVideo.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreVideo.framework; path = System/Library/Frameworks/CoreVideo.framework; sourceTree = SDKROOT; };
+		E3FE903616C2345600700D53 /* border.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = border.png; sourceTree = "<group>"; };
+		E3FE903A16C238B200700D53 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LiveFeedViewController.xib; sourceTree = "<group>"; };
+		E3FE903C16C23C0600700D53 /* FaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceViewController.h; sourceTree = "<group>"; };
+		E3FE903D16C23C0600700D53 /* FaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +62,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3FE903516C2326800700D53 /* CoreVideo.framework in Frameworks */,
+				E3FE903316C2324300700D53 /* CoreMedia.framework in Frameworks */,
+				E3FE903116C231FC00700D53 /* AVFoundation.framework in Frameworks */,
 				5AB4D01014610A0C00316888 /* CoreImage.framework in Frameworks */,
 				5AB4D00E14610A0600316888 /* QuartzCore.framework in Frameworks */,
 				5AB4CFF11461092C00316888 /* UIKit.framework in Frameworks */,
@@ -60,7 +79,6 @@
 		5AB4CFE11461092B00316888 = {
 			isa = PBXGroup;
 			children = (
-				E3FE902216C21E3500700D53 /* Default-568h@2x.png */,
 				5AB4CFF61461092C00316888 /* FaceDetection */,
 				5AB4CFEF1461092C00316888 /* Frameworks */,
 				5AB4CFED1461092C00316888 /* Products */,
@@ -78,6 +96,9 @@
 		5AB4CFEF1461092C00316888 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E3FE903416C2326800700D53 /* CoreVideo.framework */,
+				E3FE903216C2324300700D53 /* CoreMedia.framework */,
+				E3FE903016C231FC00700D53 /* AVFoundation.framework */,
 				5AB4D00D14610A0600316888 /* QuartzCore.framework */,
 				5AB4D00F14610A0C00316888 /* CoreImage.framework */,
 				5AB4CFF01461092C00316888 /* UIKit.framework */,
@@ -92,9 +113,14 @@
 			children = (
 				5AB4CFFF1461092C00316888 /* AppDelegate.h */,
 				5AB4D0001461092C00316888 /* AppDelegate.m */,
+				E3FE903C16C23C0600700D53 /* FaceViewController.h */,
+				E3FE903D16C23C0600700D53 /* FaceViewController.m */,
 				5AB4D0021461092C00316888 /* ViewController.h */,
 				5AB4D0031461092C00316888 /* ViewController.m */,
 				5AB4D0051461092C00316888 /* ViewController.xib */,
+				E3FE903916C238B200700D53 /* LiveFeedViewController.xib */,
+				E3FE902C16C2317600700D53 /* LiveFeedViewController.h */,
+				E3FE902D16C2317600700D53 /* LiveFeedViewController.m */,
 				5AB4CFF71461092C00316888 /* Supporting Files */,
 			);
 			path = FaceDetection;
@@ -103,6 +129,8 @@
 		5AB4CFF71461092C00316888 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E3FE903616C2345600700D53 /* border.png */,
+				E3FE902216C21E3500700D53 /* Default-568h@2x.png */,
 				5AB4D01114610C3100316888 /* Priyanka.jpg */,
 				5AB4CFF81461092C00316888 /* FaceDetection-Info.plist */,
 				5AB4CFF91461092C00316888 /* InfoPlist.strings */,
@@ -167,6 +195,8 @@
 				5AB4D0071461092C00316888 /* ViewController.xib in Resources */,
 				5AB4D01214610C3100316888 /* Priyanka.jpg in Resources */,
 				E3FE902316C21E3500700D53 /* Default-568h@2x.png in Resources */,
+				E3FE903716C2345600700D53 /* border.png in Resources */,
+				E3FE903B16C238B200700D53 /* LiveFeedViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -180,6 +210,8 @@
 				5AB4CFFD1461092C00316888 /* main.m in Sources */,
 				5AB4D0011461092C00316888 /* AppDelegate.m in Sources */,
 				5AB4D0041461092C00316888 /* ViewController.m in Sources */,
+				E3FE902E16C2317600700D53 /* LiveFeedViewController.m in Sources */,
+				E3FE903E16C23C0600700D53 /* FaceViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +232,14 @@
 				5AB4D0061461092C00316888 /* en */,
 			);
 			name = ViewController.xib;
+			sourceTree = "<group>";
+		};
+		E3FE903916C238B200700D53 /* LiveFeedViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3FE903A16C238B200700D53 /* en */,
+			);
+			name = LiveFeedViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -258,7 +298,7 @@
 				GCC_PREFIX_HEADER = "FaceDetection/FaceDetection-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "FaceDetection/FaceDetection-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = FaceDetection;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -274,7 +314,7 @@
 				GCC_PREFIX_HEADER = "FaceDetection/FaceDetection-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "FaceDetection/FaceDetection-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				PRODUCT_NAME = FaceDetection;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
