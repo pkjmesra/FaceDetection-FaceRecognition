@@ -201,12 +201,12 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 -(void)doneLiveFeed:(id)sender
 {
-    [self dismissModalViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 -(void) addBackButton
 {
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +20, self.view.frame.size.height - 60, 70, 40)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +20, self.view.frame.origin.y + 60, 70, 40)];
     [btn setTitle:@"Done" forState:UIControlStateNormal];
     [btn setTag:10000];
     [self.view addSubview:btn];
@@ -480,6 +480,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self.navigationController setNavigationBarHidden:YES];
 	// Do any additional setup after loading the view, typically from a nib.
     
     [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];

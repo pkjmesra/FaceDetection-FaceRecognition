@@ -26,6 +26,14 @@
 		E3FE903716C2345600700D53 /* border.png in Resources */ = {isa = PBXBuildFile; fileRef = E3FE903616C2345600700D53 /* border.png */; };
 		E3FE903B16C238B200700D53 /* LiveFeedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FE903916C238B200700D53 /* LiveFeedViewController.xib */; };
 		E3FE903E16C23C0600700D53 /* FaceViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FE903D16C23C0600700D53 /* FaceViewController.m */; };
+		E3FE905A16C2A44B00700D53 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FE905916C2A44B00700D53 /* MainViewController.m */; };
+		E3FE905D16C2AC1100700D53 /* tick.aiff in Resources */ = {isa = PBXBuildFile; fileRef = E3FE905C16C2AC1100700D53 /* tick.aiff */; };
+		E3FE906216C2AC2500700D53 /* MyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FE905F16C2AC2400700D53 /* MyViewController.m */; };
+		E3FE906316C2AC2500700D53 /* OverlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FE906116C2AC2400700D53 /* OverlayViewController.m */; };
+		E3FE906816C2AC3E00700D53 /* StaticPhotoController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FE906416C2AC3E00700D53 /* StaticPhotoController.xib */; };
+		E3FE906916C2AC3E00700D53 /* OverlayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = E3FE906616C2AC3E00700D53 /* OverlayViewController.xib */; };
+		E3FE906B16C2AD9900700D53 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3FE906A16C2AD9800700D53 /* AudioToolbox.framework */; };
+		E3FE907216C3A71B00700D53 /* UIImage+Resolution.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FE907116C3A71B00700D53 /* UIImage+Resolution.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,6 +63,18 @@
 		E3FE903A16C238B200700D53 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/LiveFeedViewController.xib; sourceTree = "<group>"; };
 		E3FE903C16C23C0600700D53 /* FaceViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FaceViewController.h; sourceTree = "<group>"; };
 		E3FE903D16C23C0600700D53 /* FaceViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FaceViewController.m; sourceTree = "<group>"; };
+		E3FE905816C2A44B00700D53 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		E3FE905916C2A44B00700D53 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		E3FE905C16C2AC1100700D53 /* tick.aiff */ = {isa = PBXFileReference; lastKnownFileType = audio.aiff; path = tick.aiff; sourceTree = "<group>"; };
+		E3FE905E16C2AC2400700D53 /* MyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyViewController.h; sourceTree = "<group>"; };
+		E3FE905F16C2AC2400700D53 /* MyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyViewController.m; sourceTree = "<group>"; };
+		E3FE906016C2AC2400700D53 /* OverlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayViewController.h; sourceTree = "<group>"; };
+		E3FE906116C2AC2400700D53 /* OverlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayViewController.m; sourceTree = "<group>"; };
+		E3FE906516C2AC3E00700D53 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/StaticPhotoController.xib; sourceTree = "<group>"; };
+		E3FE906716C2AC3E00700D53 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/OverlayViewController.xib; sourceTree = "<group>"; };
+		E3FE906A16C2AD9800700D53 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		E3FE907016C3A71B00700D53 /* UIImage+Resolution.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+Resolution.h"; sourceTree = "<group>"; };
+		E3FE907116C3A71B00700D53 /* UIImage+Resolution.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Resolution.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3FE906B16C2AD9900700D53 /* AudioToolbox.framework in Frameworks */,
 				E3FE903516C2326800700D53 /* CoreVideo.framework in Frameworks */,
 				E3FE903316C2324300700D53 /* CoreMedia.framework in Frameworks */,
 				E3FE903116C231FC00700D53 /* AVFoundation.framework in Frameworks */,
@@ -96,6 +117,7 @@
 		5AB4CFEF1461092C00316888 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E3FE906A16C2AD9800700D53 /* AudioToolbox.framework */,
 				E3FE903416C2326800700D53 /* CoreVideo.framework */,
 				E3FE903216C2324300700D53 /* CoreMedia.framework */,
 				E3FE903016C231FC00700D53 /* AVFoundation.framework */,
@@ -111,8 +133,16 @@
 		5AB4CFF61461092C00316888 /* FaceDetection */ = {
 			isa = PBXGroup;
 			children = (
+				E3FE906416C2AC3E00700D53 /* StaticPhotoController.xib */,
+				E3FE906616C2AC3E00700D53 /* OverlayViewController.xib */,
+				E3FE905E16C2AC2400700D53 /* MyViewController.h */,
+				E3FE905F16C2AC2400700D53 /* MyViewController.m */,
+				E3FE906016C2AC2400700D53 /* OverlayViewController.h */,
+				E3FE906116C2AC2400700D53 /* OverlayViewController.m */,
 				5AB4CFFF1461092C00316888 /* AppDelegate.h */,
 				5AB4D0001461092C00316888 /* AppDelegate.m */,
+				E3FE905816C2A44B00700D53 /* MainViewController.h */,
+				E3FE905916C2A44B00700D53 /* MainViewController.m */,
 				E3FE903C16C23C0600700D53 /* FaceViewController.h */,
 				E3FE903D16C23C0600700D53 /* FaceViewController.m */,
 				5AB4D0021461092C00316888 /* ViewController.h */,
@@ -122,6 +152,8 @@
 				E3FE902C16C2317600700D53 /* LiveFeedViewController.h */,
 				E3FE902D16C2317600700D53 /* LiveFeedViewController.m */,
 				5AB4CFF71461092C00316888 /* Supporting Files */,
+				E3FE907016C3A71B00700D53 /* UIImage+Resolution.h */,
+				E3FE907116C3A71B00700D53 /* UIImage+Resolution.m */,
 			);
 			path = FaceDetection;
 			sourceTree = "<group>";
@@ -129,6 +161,7 @@
 		5AB4CFF71461092C00316888 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				E3FE905C16C2AC1100700D53 /* tick.aiff */,
 				E3FE903616C2345600700D53 /* border.png */,
 				E3FE902216C21E3500700D53 /* Default-568h@2x.png */,
 				5AB4D01114610C3100316888 /* Priyanka.jpg */,
@@ -197,6 +230,9 @@
 				E3FE902316C21E3500700D53 /* Default-568h@2x.png in Resources */,
 				E3FE903716C2345600700D53 /* border.png in Resources */,
 				E3FE903B16C238B200700D53 /* LiveFeedViewController.xib in Resources */,
+				E3FE905D16C2AC1100700D53 /* tick.aiff in Resources */,
+				E3FE906816C2AC3E00700D53 /* StaticPhotoController.xib in Resources */,
+				E3FE906916C2AC3E00700D53 /* OverlayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +248,10 @@
 				5AB4D0041461092C00316888 /* ViewController.m in Sources */,
 				E3FE902E16C2317600700D53 /* LiveFeedViewController.m in Sources */,
 				E3FE903E16C23C0600700D53 /* FaceViewController.m in Sources */,
+				E3FE905A16C2A44B00700D53 /* MainViewController.m in Sources */,
+				E3FE906216C2AC2500700D53 /* MyViewController.m in Sources */,
+				E3FE906316C2AC2500700D53 /* OverlayViewController.m in Sources */,
+				E3FE907216C3A71B00700D53 /* UIImage+Resolution.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,6 +280,22 @@
 				E3FE903A16C238B200700D53 /* en */,
 			);
 			name = LiveFeedViewController.xib;
+			sourceTree = "<group>";
+		};
+		E3FE906416C2AC3E00700D53 /* StaticPhotoController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3FE906516C2AC3E00700D53 /* en */,
+			);
+			name = StaticPhotoController.xib;
+			sourceTree = "<group>";
+		};
+		E3FE906616C2AC3E00700D53 /* OverlayViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E3FE906716C2AC3E00700D53 /* en */,
+			);
+			name = OverlayViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

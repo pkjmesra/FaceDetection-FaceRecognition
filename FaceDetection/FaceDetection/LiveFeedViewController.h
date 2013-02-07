@@ -47,9 +47,7 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
-#import "FaceViewController.h"
-
-@interface LiveFeedViewController : FaceViewController 
+@interface LiveFeedViewController : UIViewController
     <UIGestureRecognizerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *previewView;

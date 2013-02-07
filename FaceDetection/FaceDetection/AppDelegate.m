@@ -44,8 +44,7 @@
  //**/
 
 #import "AppDelegate.h"
-
-#import "ViewController.h"
+#import "MainViewController.h"
 
 
 @implementation AppDelegate
@@ -58,8 +57,12 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    self.viewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-    self.window.rootViewController = self.viewController;
+    MainViewController *vc = [[MainViewController alloc] init];
+    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
+    self.viewController = nav;
+    nav.navigationBar.tintColor = [UIColor colorWithRed:arc4random() % 100 / 100.0f green:arc4random() % 100 / 100.0f blue:arc4random() % 100 / 100.0f alpha:1.0f];
+
+    self.window.rootViewController = nav;
     [self.window makeKeyAndVisible];
     
     return YES;

@@ -13,6 +13,10 @@
 
 @interface FaceViewController : UIViewController
 
+@property (nonatomic, retain) UIImageView *imageView;
+@property (nonatomic, strong) UIActivityIndicatorView *activity;
+
+- (void)startFaceDetectionWithImage:(UIImage *)someImage;
 - (void)markLeftEye:(CGFloat)faceWidth faceFeature:(CIFaceFeature *)faceFeature;
 - (void)markRightEye:(CGFloat)faceWidth faceFeature:(CIFaceFeature *)faceFeature;
 - (void)markMouth:(CGFloat)faceWidth faceFeature:(CIFaceFeature *)faceFeature;
