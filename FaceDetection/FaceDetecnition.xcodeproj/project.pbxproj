@@ -37,14 +37,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5AB4CFEC1461092C00316888 /* FaceDetection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceDetection.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AB4CFEC1461092C00316888 /* FaceDetecnition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceDetecnition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AB4CFF01461092C00316888 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5AB4CFF21461092C00316888 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AB4CFF41461092C00316888 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		5AB4CFF81461092C00316888 /* FaceDetection-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FaceDetection-Info.plist"; sourceTree = "<group>"; };
+		5AB4CFF81461092C00316888 /* FaceDetecnition-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FaceDetecnition-Info.plist"; sourceTree = "<group>"; };
 		5AB4CFFA1461092C00316888 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		5AB4CFFC1461092C00316888 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		5AB4CFFE1461092C00316888 /* FaceDetection-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FaceDetection-Prefix.pch"; sourceTree = "<group>"; };
+		5AB4CFFE1461092C00316888 /* FaceDetecnition-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FaceDetecnition-Prefix.pch"; sourceTree = "<group>"; };
 		5AB4CFFF1461092C00316888 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		5AB4D0001461092C00316888 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		5AB4D0021461092C00316888 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
@@ -109,7 +109,7 @@
 		5AB4CFED1461092C00316888 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5AB4CFEC1461092C00316888 /* FaceDetection.app */,
+				5AB4CFEC1461092C00316888 /* FaceDetecnition.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -165,10 +165,10 @@
 				E3FE903616C2345600700D53 /* border.png */,
 				E3FE902216C21E3500700D53 /* Default-568h@2x.png */,
 				5AB4D01114610C3100316888 /* Priyanka.jpg */,
-				5AB4CFF81461092C00316888 /* FaceDetection-Info.plist */,
+				5AB4CFF81461092C00316888 /* FaceDetecnition-Info.plist */,
 				5AB4CFF91461092C00316888 /* InfoPlist.strings */,
 				5AB4CFFC1461092C00316888 /* main.m */,
-				5AB4CFFE1461092C00316888 /* FaceDetection-Prefix.pch */,
+				5AB4CFFE1461092C00316888 /* FaceDetecnition-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -176,9 +176,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5AB4CFEB1461092B00316888 /* FaceDetection */ = {
+		5AB4CFEB1461092B00316888 /* FaceDetecnition */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5AB4D00A1461092C00316888 /* Build configuration list for PBXNativeTarget "FaceDetection" */;
+			buildConfigurationList = 5AB4D00A1461092C00316888 /* Build configuration list for PBXNativeTarget "FaceDetecnition" */;
 			buildPhases = (
 				5AB4CFE81461092B00316888 /* Sources */,
 				5AB4CFE91461092B00316888 /* Frameworks */,
@@ -188,9 +188,9 @@
 			);
 			dependencies = (
 			);
-			name = FaceDetection;
+			name = FaceDetecnition;
 			productName = FaceDetection;
-			productReference = 5AB4CFEC1461092C00316888 /* FaceDetection.app */;
+			productReference = 5AB4CFEC1461092C00316888 /* FaceDetecnition.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -202,7 +202,7 @@
 				LastUpgradeCheck = 0420;
 				ORGANIZATIONNAME = "JID Marketing";
 			};
-			buildConfigurationList = 5AB4CFE61461092B00316888 /* Build configuration list for PBXProject "FaceDetection" */;
+			buildConfigurationList = 5AB4CFE61461092B00316888 /* Build configuration list for PBXProject "FaceDetecnition" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -214,7 +214,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5AB4CFEB1461092B00316888 /* FaceDetection */,
+				5AB4CFEB1461092B00316888 /* FaceDetecnition */,
 			);
 		};
 /* End PBXProject section */
@@ -351,11 +351,11 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FaceDetection/FaceDetection-Prefix.pch";
+				GCC_PREFIX_HEADER = "FaceDetection/FaceDetecnition-Prefix.pch";
 				GCC_VERSION = "";
-				INFOPLIST_FILE = "FaceDetection/FaceDetection-Info.plist";
+				INFOPLIST_FILE = "FaceDetection/FaceDetecnition-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = FaceDetection;
+				PRODUCT_NAME = FaceDetecnition;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -367,11 +367,11 @@
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "FaceDetection/FaceDetection-Prefix.pch";
+				GCC_PREFIX_HEADER = "FaceDetection/FaceDetecnition-Prefix.pch";
 				GCC_VERSION = "";
-				INFOPLIST_FILE = "FaceDetection/FaceDetection-Info.plist";
+				INFOPLIST_FILE = "FaceDetection/FaceDetecnition-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
-				PRODUCT_NAME = FaceDetection;
+				PRODUCT_NAME = FaceDetecnition;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
@@ -381,7 +381,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5AB4CFE61461092B00316888 /* Build configuration list for PBXProject "FaceDetection" */ = {
+		5AB4CFE61461092B00316888 /* Build configuration list for PBXProject "FaceDetecnition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5AB4D0081461092C00316888 /* Debug */,
@@ -390,7 +390,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5AB4D00A1461092C00316888 /* Build configuration list for PBXNativeTarget "FaceDetection" */ = {
+		5AB4D00A1461092C00316888 /* Build configuration list for PBXNativeTarget "FaceDetecnition" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5AB4D00B1461092C00316888 /* Debug */,
