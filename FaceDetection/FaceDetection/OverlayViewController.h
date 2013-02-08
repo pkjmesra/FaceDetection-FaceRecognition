@@ -14,7 +14,7 @@
      //                        License Agreement
      //                For Open Source Codebase that follows
      //
-     // Copyright (C) 2011, Praveen K Jha, Research2Development Inc., all rights reserved.
+     // Copyright (C) 2011, Praveen K Jha, Praveen K Jha., all rights reserved.
      // Third party copyrights are property of their respective owners.
      //
      // Redistribution and use in source and binary forms, with or without modification,

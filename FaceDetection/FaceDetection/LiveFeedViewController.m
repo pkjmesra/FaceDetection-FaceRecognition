@@ -13,7 +13,7 @@
     //                        License Agreement
     //                For Open Source Codebase that follows
     //
-    // Copyright (C) 2011, Praveen K Jha, Research2Development Inc., all rights reserved.
+    // Copyright (C) 2011, Praveen K Jha, Praveen K Jha., all rights reserved.
     // Third party copyrights are property of their respective owners.
     //
     // Redistribution and use in source and binary forms, with or without modification,
@@ -83,6 +83,8 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 @synthesize faceDetector = _faceDetector;
 
 @synthesize isUsingFrontFacingCamera = _isUsingFrontFacingCamera;
+
+@synthesize mode=_mode;
 
 - (void)setupAVCapture
 {

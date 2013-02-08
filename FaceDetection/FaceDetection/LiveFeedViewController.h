@@ -14,7 +14,7 @@
     //                        License Agreement
     //                For Open Source Codebase that follows
     //
-    // Copyright (C) 2011, Praveen K Jha, Research2Development Inc., all rights reserved.
+    // Copyright (C) 2011, Praveen K Jha, Praveen K Jha., all rights reserved.
     // Third party copyrights are property of their respective owners.
     //
     // Redistribution and use in source and binary forms, with or without modification,
@@ -47,9 +47,16 @@
 #import <UIKit/UIKit.h>
 #import <AVFoundation/AVFoundation.h>
 
+typedef enum
+{
+    Detection,
+    Training,
+    Recognition
+}viewMode;
+
 @interface LiveFeedViewController : UIViewController
     <UIGestureRecognizerDelegate, AVCaptureVideoDataOutputSampleBufferDelegate>
 
 @property (nonatomic, weak) IBOutlet UIView *previewView;
-
+@property (nonatomic, assign) viewMode mode;
 @end

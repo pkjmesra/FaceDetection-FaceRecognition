@@ -18,6 +18,16 @@
 		5AB4D00E14610A0600316888 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB4D00D14610A0600316888 /* QuartzCore.framework */; };
 		5AB4D01014610A0C00316888 /* CoreImage.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5AB4D00F14610A0C00316888 /* CoreImage.framework */; };
 		5AB4D01214610C3100316888 /* Priyanka.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 5AB4D01114610C3100316888 /* Priyanka.jpg */; };
+		E3953E7B16C3F62E0020B3F5 /* libOpenCViPhone.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3953E7816C3F6190020B3F5 /* libOpenCViPhone.a */; };
+		E3953E7F16C3F6AA0020B3F5 /* FaceRecognitionViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = E3953E7E16C3F6AA0020B3F5 /* FaceRecognitionViewController.mm */; };
+		E3DAEFF516C41E520007288A /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3DAEFF416C41E520007288A /* Accelerate.framework */; };
+		E3DAEFFA16C41EF40007288A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E3DAEFF916C41EF40007288A /* libz.dylib */; };
+		E3DAEFFB16C423980007288A /* colormap.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3953E5416C3F5530020B3F5 /* colormap.cpp */; };
+		E3DAEFFC16C4239B0007288A /* decomposition.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3953E5616C3F5530020B3F5 /* decomposition.cpp */; };
+		E3DAEFFD16C4239E0007288A /* facerec.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3953E5816C3F5530020B3F5 /* facerec.cpp */; };
+		E3DAEFFE16C423A10007288A /* helper.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3953E5A16C3F5530020B3F5 /* helper.cpp */; };
+		E3DAEFFF16C423A30007288A /* lbp.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3953E5C16C3F5530020B3F5 /* lbp.cpp */; };
+		E3DAF00016C423A50007288A /* subspace.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E3953E5E16C3F5530020B3F5 /* subspace.cpp */; };
 		E3FE902316C21E3500700D53 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = E3FE902216C21E3500700D53 /* Default-568h@2x.png */; };
 		E3FE902E16C2317600700D53 /* LiveFeedViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FE902D16C2317600700D53 /* LiveFeedViewController.m */; };
 		E3FE903116C231FC00700D53 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E3FE903016C231FC00700D53 /* AVFoundation.framework */; };
@@ -36,6 +46,30 @@
 		E3FE907216C3A71B00700D53 /* UIImage+Resolution.m in Sources */ = {isa = PBXBuildFile; fileRef = E3FE907116C3A71B00700D53 /* UIImage+Resolution.m */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		E3953E7516C3F6190020B3F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3953E6C16C3F6180020B3F5 /* FaceRecognition.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9B0C155F15234B7A00B14CF7;
+			remoteInfo = FaceRecognition;
+		};
+		E3953E7716C3F6190020B3F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3953E6C16C3F6180020B3F5 /* FaceRecognition.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 9B0C158415234DCA00B14CF7;
+			remoteInfo = OpenCViPhone;
+		};
+		E3953E7916C3F6280020B3F5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = E3953E6C16C3F6180020B3F5 /* FaceRecognition.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 9B0C158315234DCA00B14CF7;
+			remoteInfo = OpenCViPhone;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		5AB4CFEC1461092C00316888 /* FaceDetecnition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceDetecnition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AB4CFF01461092C00316888 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
@@ -53,6 +87,23 @@
 		5AB4D00D14610A0600316888 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		5AB4D00F14610A0C00316888 /* CoreImage.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreImage.framework; path = System/Library/Frameworks/CoreImage.framework; sourceTree = SDKROOT; };
 		5AB4D01114610C3100316888 /* Priyanka.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Priyanka.jpg; sourceTree = "<group>"; };
+		E3953E5416C3F5530020B3F5 /* colormap.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = colormap.cpp; path = FaceRecognition/FaceRecognition/colormap.cpp; sourceTree = "<group>"; };
+		E3953E5516C3F5530020B3F5 /* colormap.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = colormap.hpp; path = FaceRecognition/FaceRecognition/colormap.hpp; sourceTree = "<group>"; };
+		E3953E5616C3F5530020B3F5 /* decomposition.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = decomposition.cpp; path = FaceRecognition/FaceRecognition/decomposition.cpp; sourceTree = "<group>"; };
+		E3953E5716C3F5530020B3F5 /* decomposition.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = decomposition.hpp; path = FaceRecognition/FaceRecognition/decomposition.hpp; sourceTree = "<group>"; };
+		E3953E5816C3F5530020B3F5 /* facerec.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = facerec.cpp; path = FaceRecognition/FaceRecognition/facerec.cpp; sourceTree = "<group>"; };
+		E3953E5916C3F5530020B3F5 /* facerec.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = facerec.hpp; path = FaceRecognition/FaceRecognition/facerec.hpp; sourceTree = "<group>"; };
+		E3953E5A16C3F5530020B3F5 /* helper.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = helper.cpp; path = FaceRecognition/FaceRecognition/helper.cpp; sourceTree = "<group>"; };
+		E3953E5B16C3F5530020B3F5 /* helper.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = helper.hpp; path = FaceRecognition/FaceRecognition/helper.hpp; sourceTree = "<group>"; };
+		E3953E5C16C3F5530020B3F5 /* lbp.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = lbp.cpp; path = FaceRecognition/FaceRecognition/lbp.cpp; sourceTree = "<group>"; };
+		E3953E5D16C3F5530020B3F5 /* lbp.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = lbp.hpp; path = FaceRecognition/FaceRecognition/lbp.hpp; sourceTree = "<group>"; };
+		E3953E5E16C3F5530020B3F5 /* subspace.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = subspace.cpp; path = FaceRecognition/FaceRecognition/subspace.cpp; sourceTree = "<group>"; };
+		E3953E5F16C3F5530020B3F5 /* subspace.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = subspace.hpp; path = FaceRecognition/FaceRecognition/subspace.hpp; sourceTree = "<group>"; };
+		E3953E6C16C3F6180020B3F5 /* FaceRecognition.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = FaceRecognition.xcodeproj; path = FaceRecognition/FaceRecognition.xcodeproj; sourceTree = "<group>"; };
+		E3953E7D16C3F6AA0020B3F5 /* FaceRecognitionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FaceRecognitionViewController.h; path = FaceRecognition/FaceRecognition/FaceRecognitionViewController.h; sourceTree = "<group>"; };
+		E3953E7E16C3F6AA0020B3F5 /* FaceRecognitionViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = FaceRecognitionViewController.mm; path = FaceRecognition/FaceRecognition/FaceRecognitionViewController.mm; sourceTree = "<group>"; };
+		E3DAEFF416C41E520007288A /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		E3DAEFF916C41EF40007288A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		E3FE902216C21E3500700D53 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "../Default-568h@2x.png"; sourceTree = "<group>"; };
 		E3FE902C16C2317600700D53 /* LiveFeedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LiveFeedViewController.h; sourceTree = "<group>"; };
 		E3FE902D16C2317600700D53 /* LiveFeedViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LiveFeedViewController.m; sourceTree = "<group>"; };
@@ -82,6 +133,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E3DAEFFA16C41EF40007288A /* libz.dylib in Frameworks */,
+				E3DAEFF516C41E520007288A /* Accelerate.framework in Frameworks */,
+				E3953E7B16C3F62E0020B3F5 /* libOpenCViPhone.a in Frameworks */,
 				E3FE906B16C2AD9900700D53 /* AudioToolbox.framework in Frameworks */,
 				E3FE903516C2326800700D53 /* CoreVideo.framework in Frameworks */,
 				E3FE903316C2324300700D53 /* CoreMedia.framework in Frameworks */,
@@ -100,8 +154,10 @@
 		5AB4CFE11461092B00316888 = {
 			isa = PBXGroup;
 			children = (
+				E3953E6616C3F55C0020B3F5 /* FaceRecognition */,
 				5AB4CFF61461092C00316888 /* FaceDetection */,
 				5AB4CFEF1461092C00316888 /* Frameworks */,
+				E3DAEFF916C41EF40007288A /* libz.dylib */,
 				5AB4CFED1461092C00316888 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -117,6 +173,8 @@
 		5AB4CFEF1461092C00316888 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E3953E6C16C3F6180020B3F5 /* FaceRecognition.xcodeproj */,
+				E3DAEFF416C41E520007288A /* Accelerate.framework */,
 				E3FE906A16C2AD9800700D53 /* AudioToolbox.framework */,
 				E3FE903416C2326800700D53 /* CoreVideo.framework */,
 				E3FE903216C2324300700D53 /* CoreMedia.framework */,
@@ -173,6 +231,44 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		E3953E6616C3F55C0020B3F5 /* FaceRecognition */ = {
+			isa = PBXGroup;
+			children = (
+				E3953E7D16C3F6AA0020B3F5 /* FaceRecognitionViewController.h */,
+				E3953E7E16C3F6AA0020B3F5 /* FaceRecognitionViewController.mm */,
+				E3953E7C16C3F68A0020B3F5 /* Core */,
+			);
+			name = FaceRecognition;
+			sourceTree = "<group>";
+		};
+		E3953E6D16C3F6180020B3F5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E3953E7616C3F6190020B3F5 /* FaceRecognition.app */,
+				E3953E7816C3F6190020B3F5 /* libOpenCViPhone.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E3953E7C16C3F68A0020B3F5 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				E3953E5416C3F5530020B3F5 /* colormap.cpp */,
+				E3953E5516C3F5530020B3F5 /* colormap.hpp */,
+				E3953E5616C3F5530020B3F5 /* decomposition.cpp */,
+				E3953E5716C3F5530020B3F5 /* decomposition.hpp */,
+				E3953E5816C3F5530020B3F5 /* facerec.cpp */,
+				E3953E5916C3F5530020B3F5 /* facerec.hpp */,
+				E3953E5A16C3F5530020B3F5 /* helper.cpp */,
+				E3953E5B16C3F5530020B3F5 /* helper.hpp */,
+				E3953E5C16C3F5530020B3F5 /* lbp.cpp */,
+				E3953E5D16C3F5530020B3F5 /* lbp.hpp */,
+				E3953E5E16C3F5530020B3F5 /* subspace.cpp */,
+				E3953E5F16C3F5530020B3F5 /* subspace.hpp */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -187,6 +283,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				E3953E7A16C3F6280020B3F5 /* PBXTargetDependency */,
 			);
 			name = FaceDetecnition;
 			productName = FaceDetection;
@@ -212,12 +309,35 @@
 			mainGroup = 5AB4CFE11461092B00316888;
 			productRefGroup = 5AB4CFED1461092C00316888 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = E3953E6D16C3F6180020B3F5 /* Products */;
+					ProjectRef = E3953E6C16C3F6180020B3F5 /* FaceRecognition.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				5AB4CFEB1461092B00316888 /* FaceDetecnition */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		E3953E7616C3F6190020B3F5 /* FaceRecognition.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = FaceRecognition.app;
+			remoteRef = E3953E7516C3F6190020B3F5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		E3953E7816C3F6190020B3F5 /* libOpenCViPhone.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libOpenCViPhone.a;
+			remoteRef = E3953E7716C3F6190020B3F5 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		5AB4CFEA1461092B00316888 /* Resources */ = {
@@ -252,10 +372,25 @@
 				E3FE906216C2AC2500700D53 /* MyViewController.m in Sources */,
 				E3FE906316C2AC2500700D53 /* OverlayViewController.m in Sources */,
 				E3FE907216C3A71B00700D53 /* UIImage+Resolution.m in Sources */,
+				E3DAF00016C423A50007288A /* subspace.cpp in Sources */,
+				E3DAEFFF16C423A30007288A /* lbp.cpp in Sources */,
+				E3DAEFFE16C423A10007288A /* helper.cpp in Sources */,
+				E3DAEFFB16C423980007288A /* colormap.cpp in Sources */,
+				E3DAEFFC16C4239B0007288A /* decomposition.cpp in Sources */,
+				E3DAEFFD16C4239E0007288A /* facerec.cpp in Sources */,
+				E3953E7F16C3F6AA0020B3F5 /* FaceRecognitionViewController.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		E3953E7A16C3F6280020B3F5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = OpenCViPhone;
+			targetProxy = E3953E7916C3F6280020B3F5 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		5AB4CFF91461092C00316888 /* InfoPlist.strings */ = {
@@ -349,15 +484,17 @@
 		5AB4D00B1461092C00316888 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FaceDetection/FaceDetecnition-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "FaceDetection/FaceDetecnition-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = FaceDetecnition;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/core/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/flann/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/imgproc/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/video/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/features2d/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/objdetect/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/calib3d/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/highgui/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/ml/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/contrib/include ${SRCROOT}/FaceRecognition/ThirdParty/iulib ${SRCROOT}/FaceRecognition/ThirdParty/iulib-includes ${SRCROOT}/FaceRecognition/ThirdParty/ocropus/ocr-utils";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -365,15 +502,17 @@
 		5AB4D00C1461092C00316888 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FaceDetection/FaceDetecnition-Prefix.pch";
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "FaceDetection/FaceDetecnition-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				PRODUCT_NAME = FaceDetecnition;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/core/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/flann/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/imgproc/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/video/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/features2d/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/objdetect/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/calib3d/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/highgui/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/ml/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/contrib/include ${SRCROOT}/FaceRecognition/ThirdParty/iulib ${SRCROOT}/FaceRecognition/ThirdParty/iulib-includes ${SRCROOT}/FaceRecognition/ThirdParty/ocropus/ocr-utils";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
