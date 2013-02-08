@@ -5,9 +5,8 @@
 
 
 #import <UIKit/UIKit.h>
+#import "LiveFeedViewController.h"
 
-@interface FaceRecognitionViewController : UIViewController
-
-- (IBAction)faceRecognition:(id)sender;
+@interface FaceRecognitionViewController : LiveFeedViewController
 
 @end

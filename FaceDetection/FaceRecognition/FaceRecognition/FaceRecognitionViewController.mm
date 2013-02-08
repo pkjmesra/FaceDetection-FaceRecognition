@@ -39,41 +39,67 @@
     return ret;
 }
 
-- (IBAction)faceRecognition:(id)sender {
+-(void)tryMatchFaceWithTrainingUserSet:(int) numberOfSubjects matchAgainst:(NSString*)targetImagePath
+{
+    self.mode = Recognition;
+
     // load images
     vector<Mat> images;
     vector<int> labels;
     
-    int numberOfSubjects = 4;
-    int numberPhotosPerSubject = 3;
-    
+//    int numberOfSubjects = 1;
+    int numberPhotosPerSubject = 7;
+
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *baseDir = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    NSString *trainingSetDir = [baseDir stringByAppendingPathComponent:@"TrainingSetUser1"];
+//    NSString *recognitionSetDir = [baseDir stringByAppendingPathComponent:@"RecognitionSetUser2"];
+
     for (int i=1; i<=numberOfSubjects; i++) {
         for (int j=1; j<=numberPhotosPerSubject; j++) {
             // create grayscale images
-            Mat src = [self CreateIplImageFromUIImage:[UIImage imageNamed:[NSString stringWithFormat:@"%d_%d.jpg", i, j]]];
+            Mat src = [self CreateIplImageFromUIImage:[UIImage imageWithContentsOfFile:[trainingSetDir stringByAppendingPathComponent:[NSString stringWithFormat:@"%d_%d.jpg", i, j]]]];
             Mat dst;
             cv::cvtColor(src, dst, CV_BGR2GRAY);
-            
+//            cv::resize(src, dst, dst.size());
+
             images.push_back(dst);
             labels.push_back(i);
         }
     }
-    
+
+    NSLog(@"Number of subjects are:%d", numberOfSubjects);
     // get test instances
-    Mat testSample = images[images.size() -1];
-    int testLabel = labels[labels.size() - 1];
-    
+    Mat testSample = [self CreateIplImageFromUIImage:[UIImage imageWithContentsOfFile:targetImagePath]];//images[images.size() -1];
+    Mat testSampleFinal;
+    cv::cvtColor(testSample, testSampleFinal, CV_BGR2GRAY);
+
+    int testLabel = labels[0];
+
+//    cv::resize(src, dst, dst.size());
+
     // ... and delete last element
-    images.pop_back();
-    labels.pop_back();
-    
+//    images.pop_back();
+//    labels.pop_back();
+
     // build the Fisherfaces model
     Fisherfaces model(images, labels);
     
     // test model
-    int predicted = model.predict(testSample);
-    cout << "predicted class = " << predicted << endl;
-    cout << "actual class = " << testLabel << endl;
+    int predicted = model.predict(testSampleFinal);
+    cout << "predicted index of match from training set = " << predicted << endl;
+
+    cout << "actual index of match from training set = " << testLabel << endl;
+
+    if (predicted >0)
+    {
+        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"A match was found!"
+                                                            message:[NSString stringWithFormat:@"Match found in %d (th)", predicted]
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Dismiss"
+                                                  otherButtonTitles:nil];
+        [alertView show];
+    }
 }
 
 - (void)viewDidLoad

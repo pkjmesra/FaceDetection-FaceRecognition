@@ -71,7 +71,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5AB4CFEC1461092C00316888 /* FaceDetecnition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceDetecnition.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5AB4CFEC1461092C00316888 /* Detecnition.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Detecnition.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5AB4CFF01461092C00316888 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		5AB4CFF21461092C00316888 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5AB4CFF41461092C00316888 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -165,7 +165,7 @@
 		5AB4CFED1461092C00316888 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5AB4CFEC1461092C00316888 /* FaceDetecnition.app */,
+				5AB4CFEC1461092C00316888 /* Detecnition.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -287,7 +287,7 @@
 			);
 			name = FaceDetecnition;
 			productName = FaceDetection;
-			productReference = 5AB4CFEC1461092C00316888 /* FaceDetecnition.app */;
+			productReference = 5AB4CFEC1461092C00316888 /* Detecnition.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -491,7 +491,7 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "FaceDetection/FaceDetecnition-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = FaceDetecnition;
+				PRODUCT_NAME = Detecnition;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/core/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/flann/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/imgproc/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/video/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/features2d/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/objdetect/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/calib3d/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/highgui/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/ml/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/contrib/include ${SRCROOT}/FaceRecognition/ThirdParty/iulib ${SRCROOT}/FaceRecognition/ThirdParty/iulib-includes ${SRCROOT}/FaceRecognition/ThirdParty/ocropus/ocr-utils";
@@ -509,7 +509,7 @@
 				GCC_VERSION = "";
 				INFOPLIST_FILE = "FaceDetection/FaceDetecnition-Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PRODUCT_NAME = FaceDetecnition;
+				PRODUCT_NAME = Detecnition;
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/core/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/flann/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/imgproc/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/video/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/features2d/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/objdetect/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/calib3d/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/highgui/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/ml/include ${SRCROOT}/FaceRecognition/ThirdParty/OpenCV/modules/contrib/include ${SRCROOT}/FaceRecognition/ThirdParty/iulib ${SRCROOT}/FaceRecognition/ThirdParty/iulib-includes ${SRCROOT}/FaceRecognition/ThirdParty/ocropus/ocr-utils";

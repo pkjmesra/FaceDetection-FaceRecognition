@@ -162,7 +162,7 @@
             // we took a single shot
 //            [self.imageView setImage:[self.capturedImages objectAtIndex:0]];
             UIImage *img = [self.capturedImages objectAtIndex:0];
-            img = [img scaleProportionalToSize:CGSizeMake(420, 320)];
+            img = [img scaleProportionalToSize:CGSizeMake(340, 320)];
             [self startFaceDetectionWithImage:img];
             [self.capturedImages removeAllObjects];
             // Execute the method used to markFaces in background

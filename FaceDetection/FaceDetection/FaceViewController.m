@@ -69,7 +69,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view.
-    UIImage *img = [[UIImage imageNamed:@"Priyanka.jpg"] scaleProportionalToSize:CGSizeMake(420, 320)];
+    UIImage *img = [[UIImage imageNamed:@"Priyanka.jpg"] scaleProportionalToSize:CGSizeMake(340, 320)];
     UIActivityIndicatorView *v = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
     [v setFrame:CGRectMake(self.view.frame.size.width/2, self.view.frame.size.height/2, 40, 40)];
     self.activity = v;
@@ -140,6 +140,7 @@
         [self markMouth:faceWidth faceFeature:faceFeature];
     }
     [self.activity stopAnimating];
+    [self.view bringSubviewToFront:[self.view viewWithTag:10000]];
 }
 
 -(void)startFaceDetectionWithImage:(UIImage *)someImage

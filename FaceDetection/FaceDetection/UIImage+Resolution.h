@@ -11,5 +11,6 @@
 @interface UIImage (Resolution)
 - (UIImage *) scaleToSize: (CGSize)size;
 - (UIImage *) scaleProportionalToSize: (CGSize)size;
-
+- (UIImage *)convertToGrayscale;
+-(UIImage*)rotateDegrees:(double)r;
 @end

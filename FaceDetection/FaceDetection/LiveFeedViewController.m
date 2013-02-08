@@ -52,7 +52,10 @@
 static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 @interface LiveFeedViewController ()
-
+{
+    int numberOfSubjects;
+    int fileCount;
+}
 @property (nonatomic) BOOL isUsingFrontFacingCamera;
 @property (nonatomic, strong) AVCaptureVideoDataOutput *videoDataOutput;
 @property (nonatomic) dispatch_queue_t videoDataOutputQueue;
@@ -88,6 +91,8 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 - (void)setupAVCapture
 {
+    numberOfSubjects =1;
+    fileCount =1;
 	NSError *error = nil;
 	
 	AVCaptureSession *session = [[AVCaptureSession alloc] init];
@@ -206,15 +211,54 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
+- (void)trainForRecognition:(id)sender
+{
+    if (numberOfSubjects <=0)
+    {
+        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+        NSString *baseDir = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+        NSString *userDir = [baseDir stringByAppendingPathComponent:@"TrainingSetUser1"];
+
+        [[NSFileManager defaultManager] removeItemAtPath:userDir error:nil];
+    }
+    fileCount=1;
+    [((UIButton*)[self.view viewWithTag:10001]) setTitle:@"Training..." forState:UIControlStateNormal];
+    numberOfSubjects++;
+    self.mode = Training;
+}
+
+- (void)recognize:(id)sender
+{
+    [((UIButton *)[self.view viewWithTag:10002]) setTitle:@"Hold on..." forState:UIControlStateNormal];
+    // Overridden?
+    self.mode = Recognition;
+}
+
 -(void) addBackButton
 {
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +20, self.view.frame.origin.y + 60, 70, 40)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +10, self.view.frame.origin.y + 60, 50, 40)];
     [btn setTitle:@"Done" forState:UIControlStateNormal];
     [btn setTag:10000];
     [self.view addSubview:btn];
     [self.view setBackgroundColor:[UIColor greenColor]];
     [btn setBackgroundColor:[UIColor redColor]];
     [btn addTarget:self action:@selector(doneLiveFeed:) forControlEvents:UIControlEventTouchUpInside];
+
+    // Train/recognise button
+    UIButton *btnTrain = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +70, self.view.frame.origin.y + 60, 130, 40)];
+    [btnTrain setTitle:@"Training..." forState:UIControlStateNormal];
+    [btnTrain setTag:10001];
+    [self.view addSubview:btnTrain];
+    [btnTrain setBackgroundColor:[UIColor redColor]];
+    [btnTrain addTarget:self action:@selector(trainForRecognition:) forControlEvents:UIControlEventTouchUpInside];
+
+    UIButton *btnRecognise = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +210, self.view.frame.origin.y + 60, 120, 40)];
+    [btnRecognise setTitle:@"Recognize" forState:UIControlStateNormal];
+    [btnRecognise setTag:10002];
+    [self.view addSubview:btnRecognise];
+    [btnRecognise setBackgroundColor:[UIColor redColor]];
+    [btnRecognise addTarget:self action:@selector(recognize:) forControlEvents:UIControlEventTouchUpInside];
+
 }
 
 
@@ -267,7 +311,8 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 // to detect features and for each draw the green border in a layer and set appropriate orientation
 - (void)drawFaces:(NSArray *)features 
       forVideoBox:(CGRect)clearAperture 
-      orientation:(UIDeviceOrientation)orientation
+orientation:(UIDeviceOrientation)orientation
+            image:(CIImage*)ciImage
 {
 	NSArray *sublayers = [NSArray arrayWithArray:[self.previewLayer sublayers]];
 	NSInteger sublayersCount = [sublayers count], currentSublayer = 0;
@@ -297,7 +342,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     NSArray *arr = [self.view subviews];
     for (int i=arr.count-1; i>=0; i--) {
         UIView *v = [arr objectAtIndex:i];
-        if (v.tag !=9999 && v.tag !=10000)
+        if (v.tag !=9999 && v.tag >10003)
             [v removeFromSuperview];
     }
     
@@ -344,34 +389,39 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 		}
 
-		// create a new one if necessary
-		if ( !featureLayer ) {
-			featureLayer = [[CALayer alloc]init];
-			featureLayer.contents = (id)self.borderImage.CGImage;
-			[featureLayer setName:@"FaceLayer"];
-			[self.previewLayer addSublayer:featureLayer];
-			featureLayer = nil;
-		}
-		[featureLayer setFrame:faceRect];
-		
-		switch (orientation) {
-			case UIDeviceOrientationPortrait:
-				[featureLayer setAffineTransform:CGAffineTransformMakeRotation(DegreesToRadians(0.))];
-				break;
-			case UIDeviceOrientationPortraitUpsideDown:
-				[featureLayer setAffineTransform:CGAffineTransformMakeRotation(DegreesToRadians(180.))];
-				break;
-			case UIDeviceOrientationLandscapeLeft:
-				[featureLayer setAffineTransform:CGAffineTransformMakeRotation(DegreesToRadians(90.))];
-				break;
-			case UIDeviceOrientationLandscapeRight:
-				[featureLayer setAffineTransform:CGAffineTransformMakeRotation(DegreesToRadians(-90.))];
-				break;
-			case UIDeviceOrientationFaceUp:
-			case UIDeviceOrientationFaceDown:
-			default:
-				break; // leave the layer in its last known orientation
-		}
+        if (self.mode == Detection)
+        {
+            // create a new one if necessary
+            if ( !featureLayer ) {
+                featureLayer = [[CALayer alloc]init];
+                featureLayer.contents = (id)self.borderImage.CGImage;
+                [featureLayer setName:@"FaceLayer"];
+                [self.previewLayer addSublayer:featureLayer];
+                featureLayer = nil;
+            }
+            [featureLayer setFrame:faceRect];
+            
+            switch (orientation) {
+                case UIDeviceOrientationPortrait:
+                    [featureLayer setAffineTransform:CGAffineTransformMakeRotation(DegreesToRadians(0.))];
+                    break;
+                case UIDeviceOrientationPortraitUpsideDown:
+                    [featureLayer setAffineTransform:CGAffineTransformMakeRotation(DegreesToRadians(180.))];
+                    break;
+                case UIDeviceOrientationLandscapeLeft:
+                    [featureLayer setAffineTransform:CGAffineTransformMakeRotation(DegreesToRadians(90.))];
+                    break;
+                case UIDeviceOrientationLandscapeRight:
+                    [featureLayer setAffineTransform:CGAffineTransformMakeRotation(DegreesToRadians(-90.))];
+                    break;
+                case UIDeviceOrientationFaceUp:
+                case UIDeviceOrientationFaceDown:
+                default:
+                    break; // leave the layer in its last known orientation
+            }
+        }
+        else if (!(featureLayer.frame.size.width == CGRectZero.size.width))
+            [featureLayer setFrame:CGRectZero];
 
         if (!faceRectLayer)
         {
@@ -386,7 +436,13 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
             faceRectLayer =nil;
         }
         [faceRectLayer setFrame:faceRect];
-        
+
+        if (self.mode !=Detection)
+        {
+            CGRect grayScaleFace =[ff bounds];
+            grayScaleFace = CGRectMake(grayScaleFace.origin.x, grayScaleFace.origin.y -10, grayScaleFace.size.width, grayScaleFace.size.height+10);
+            [self saveImage:[self imageFromRect:grayScaleFace image:ciImage]];
+        }
 		currentFeature++;
 	}
 	
@@ -457,7 +513,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     
 	NSDictionary *imageOptions = nil;
     
-	imageOptions = [NSDictionary dictionaryWithObject:[self exifOrientation:curDeviceOrientation] 
+	imageOptions = [NSDictionary dictionaryWithObject:[self exifOrientation:curDeviceOrientation]
                                                forKey:CIDetectorImageOrientation];
     
 	NSArray *features = [self.faceDetector featuresInImage:ciImage 
@@ -470,12 +526,112 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 	CGRect cleanAperture = CMVideoFormatDescriptionGetCleanAperture(fdesc, false /*originIsTopLeft == false*/);
 	
 	dispatch_async(dispatch_get_main_queue(), ^(void) {
-		[self drawFaces:features 
+		[self drawFaces:features
             forVideoBox:cleanAperture 
-            orientation:curDeviceOrientation];
+            orientation:curDeviceOrientation
+                  image:ciImage];
 	});
 }
 
+- (UIImage *)imageFromRect:(CGRect)rect image:(CIImage*)ciImage
+{
+    UIGraphicsBeginImageContext(rect.size);
+
+    CGImageRef cropColourImage = [[CIContext contextWithOptions:nil] createCGImage:ciImage fromRect:rect];
+
+    // Create bitmap image from original image data,
+    // using rectangle to specify desired crop area
+    UIImage *img = [UIImage imageWithCGImage:cropColourImage];
+    CGImageRelease(cropColourImage);
+
+//    [layer renderInContext:UIGraphicsGetCurrentContext()];
+//    UIImage *outputImage = UIGraphicsGetImageFromCurrentImageContext();
+
+    UIGraphicsEndImageContext();
+
+    return [img convertToGrayscale];
+//    return outputImage;
+}
+
+-(void) saveImage:(UIImage*)image
+{
+    if (self.mode == Detection)
+        return;
+    int maxCount =6;
+    // Save the images in training mode so we can compare against these images
+    // when trying to recognise faces
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *baseDir = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    NSFileManager *fm = [NSFileManager defaultManager];
+    NSString *userDir1 = [baseDir stringByAppendingPathComponent:@"TrainingSetUser1"];
+//    NSString *userDir2 = [baseDir stringByAppendingPathComponent:@"RecognitionSetUser2"];
+    if (self.mode == Training)
+    {
+        [fm createDirectoryAtPath:userDir1
+                                  withIntermediateDirectories:YES
+                                                   attributes:nil
+                                                        error:nil];
+
+        
+        NSArray *dirContents = [fm contentsOfDirectoryAtPath:userDir1 error:nil];
+        NSPredicate *fltr = [NSPredicate predicateWithFormat:@"self ENDSWITH '.jpg'"];
+        NSArray *onlyJPGs = [dirContents filteredArrayUsingPredicate:fltr];
+        // Create paths to output images
+        NSString  *jpgPath = [userDir1 stringByAppendingPathComponent:[NSString stringWithFormat:@"%d_%d.jpg",numberOfSubjects,fileCount++]];
+
+        NSLog(@"jpgPath:%@",jpgPath);
+        // Write a UIImage to JPEG with minimum compression (best quality)
+        // The value 'image' must be a UIImage object
+        // The value '1.0' represents image compression quality as value from 0.0 to 1.0
+        [UIImageJPEGRepresentation(image, 1.0) writeToFile:jpgPath atomically:YES];
+
+        if ([onlyJPGs count] >=(maxCount +1)*numberOfSubjects-1)
+        {
+            // Let's get ready for recognition
+            [((UIButton *)[self.view viewWithTag:10001]) setTitle:@"Train" forState:UIControlStateNormal];
+            self.mode = Detection;
+        }
+    }
+    else if (self.mode == Recognition)
+    {
+
+        [fm createDirectoryAtPath:userDir1
+      withIntermediateDirectories:YES
+                       attributes:nil
+                            error:nil];
+
+
+//        NSArray *dirContents = [fm contentsOfDirectoryAtPath:userDir1 error:nil];
+//        NSPredicate *fltr = [NSPredicate predicateWithFormat:@"self ENDSWITH '.jpg'"];
+//        NSArray *onlyJPGs = [dirContents filteredArrayUsingPredicate:fltr];
+        // Create paths to output images
+        NSString  *jpgPath = [userDir1 stringByAppendingPathComponent:@"MatchAgainst.jpg"];
+
+        // Write a UIImage to JPEG with minimum compression (best quality)
+        // The value 'image' must be a UIImage object
+        // The value '1.0' represents image compression quality as value from 0.0 to 1.0
+        [UIImageJPEGRepresentation(image, 1.0) writeToFile:jpgPath atomically:YES];
+//        if ([onlyJPGs count] >=2*maxCount+1)
+//        {
+            // Let's get started with recognition
+            self.mode = Detection;
+//            [session stopRunning];
+            [self teardownAVCapture];
+            [self tryMatchFaceWithTrainingUserSet:numberOfSubjects matchAgainst:jpgPath];
+            // Remove the image directories
+//            [fm removeItemAtPath:userDir1 error:nil];
+//            [fm removeItemAtPath:userDir2 error:nil];
+            [((UIButton *)[self.view viewWithTag:10002]) setTitle:@"Recognize" forState:UIControlStateNormal];
+//        }
+
+    }
+
+}
+
+-(void)tryMatchFaceWithTrainingUserSet:(int) numberOfSubjects matchAgainst:(NSString*)targetImagePath
+{
+    // Overridden?
+}
 
 #pragma mark - View lifecycle
 

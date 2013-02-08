@@ -94,18 +94,26 @@
 -(void)tryLiveFeedDetection:(id)sender
 {
     LiveFeedViewController *lVC = [[LiveFeedViewController alloc] initWithNibName:@"LiveFeedViewController" bundle:nil];
+    lVC.mode = Detection;
     [self.navigationController pushViewController:lVC animated:YES];
-}
-
--(void)tryLiveFeedRecognition:(id)sender
-{
-    //TODO:
 }
 
 -(void)tryStaticRecognition:(id)sender
 {
-    FaceRecognitionViewController *viewController = [[FaceRecognitionViewController alloc] init];
+    //TODO:
+}
+
+-(void)tryLiveFeedRecognition:(id)sender
+{
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *baseDir = ([paths count] > 0) ? [paths objectAtIndex:0] : nil;
+    NSString *userDir = [baseDir stringByAppendingPathComponent:@"TrainingSetUser1"];
+
+    [[NSFileManager defaultManager] removeItemAtPath:userDir error:nil];
+
+    FaceRecognitionViewController *viewController = [[FaceRecognitionViewController alloc] initWithNibName:@"LiveFeedViewController" bundle:nil];
     [self.navigationController pushViewController:viewController animated:YES];
+    viewController.mode = Training;
 
 }
 
