@@ -180,6 +180,49 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 	}
 }
 
+//! Switches from rear to front camera and vice-versa.
+-(void) switchSessions:(id)sender//:(BOOL)isRear
+{
+	if([self.previewLayer.session isRunning])
+	{
+        [self.previewLayer.session stopRunning];
+        [self.previewLayer.session removeInput:[self.previewLayer.session.inputs objectAtIndex:0]];
+    }
+    AVCaptureDevice *device;
+    AVCaptureDevicePosition desiredPosition = self.isUsingFrontFacingCamera?AVCaptureDevicePositionBack:AVCaptureDevicePositionFront;
+
+    // find the front facing camera
+	for (AVCaptureDevice *d in [AVCaptureDevice devicesWithMediaType:AVMediaTypeVideo])
+    {
+		if ([d position] == desiredPosition)
+        {
+			device = d;
+            self.isUsingFrontFacingCamera = !self.isUsingFrontFacingCamera;
+			break;
+		}
+	}
+    // fall back to the default camera.
+    if( nil == device )
+    {
+        self.isUsingFrontFacingCamera = !self.isUsingFrontFacingCamera;
+        device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
+    }
+    NSError *error;
+    // get the input device
+    AVCaptureDeviceInput *deviceInput = [AVCaptureDeviceInput deviceInputWithDevice:device error:&error];
+
+    if( !error )
+    {
+
+        // add the input to the session
+        if ( [self.previewLayer.session canAddInput:deviceInput] )
+        {
+            [self.previewLayer.session addInput:deviceInput];
+        }
+    }
+    [self.previewLayer.session startRunning];
+}
+
 // clean up capture setup
 - (void)teardownAVCapture
 {
@@ -229,6 +272,16 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 - (void)recognize:(id)sender
 {
+    if (numberOfSubjects <=2) {
+		UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:
+                                  @"Insufficient training set!"
+                                                            message:@"Please train at least 2-3 times!"
+                                                           delegate:nil
+                                                  cancelButtonTitle:@"Got it!"
+                                                  otherButtonTitles:nil];
+		[alertView show];
+        return;
+    }
     [((UIButton *)[self.view viewWithTag:10002]) setTitle:@"Hold on..." forState:UIControlStateNormal];
     // Overridden?
     self.mode = Recognition;
@@ -236,7 +289,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
 
 -(void) addBackButton
 {
-    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +10, self.view.frame.origin.y + 60, 50, 40)];
+    UIButton *btn = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +5, self.view.frame.origin.y + 60, 50, 40)];
     [btn setTitle:@"Done" forState:UIControlStateNormal];
     [btn setTag:10000];
     [self.view addSubview:btn];
@@ -245,19 +298,26 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     [btn addTarget:self action:@selector(doneLiveFeed:) forControlEvents:UIControlEventTouchUpInside];
 
     // Train/recognise button
-    UIButton *btnTrain = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +70, self.view.frame.origin.y + 60, 130, 40)];
+    UIButton *btnTrain = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +60, self.view.frame.origin.y + 60, 80, 40)];
     [btnTrain setTitle:@"Training..." forState:UIControlStateNormal];
     [btnTrain setTag:10001];
     [self.view addSubview:btnTrain];
     [btnTrain setBackgroundColor:[UIColor redColor]];
     [btnTrain addTarget:self action:@selector(trainForRecognition:) forControlEvents:UIControlEventTouchUpInside];
 
-    UIButton *btnRecognise = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +210, self.view.frame.origin.y + 60, 120, 40)];
+    UIButton *btnRecognise = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +145, self.view.frame.origin.y + 60, 90, 40)];
     [btnRecognise setTitle:@"Recognize" forState:UIControlStateNormal];
     [btnRecognise setTag:10002];
     [self.view addSubview:btnRecognise];
     [btnRecognise setBackgroundColor:[UIColor redColor]];
     [btnRecognise addTarget:self action:@selector(recognize:) forControlEvents:UIControlEventTouchUpInside];
+
+    UIButton *btnSwitch = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +240, self.view.frame.origin.y + 60, 60, 40)];
+    [btnSwitch setTitle:@"Switch" forState:UIControlStateNormal];
+    [btnSwitch setTag:10003];
+    [self.view addSubview:btnSwitch];
+    [btnSwitch setBackgroundColor:[UIColor redColor]];
+    [btnSwitch addTarget:self action:@selector(switchSessions:) forControlEvents:UIControlEventTouchUpInside];
 
 }
 
@@ -594,6 +654,8 @@ orientation:(UIDeviceOrientation)orientation
     }
     else if (self.mode == Recognition)
     {
+        // Let's get started with recognition
+        self.mode = Detection;
 
         [fm createDirectoryAtPath:userDir1
       withIntermediateDirectories:YES
@@ -611,18 +673,15 @@ orientation:(UIDeviceOrientation)orientation
         // The value 'image' must be a UIImage object
         // The value '1.0' represents image compression quality as value from 0.0 to 1.0
         [UIImageJPEGRepresentation(image, 1.0) writeToFile:jpgPath atomically:YES];
-//        if ([onlyJPGs count] >=2*maxCount+1)
-//        {
-            // Let's get started with recognition
-            self.mode = Detection;
-//            [session stopRunning];
-            [self teardownAVCapture];
-            [self tryMatchFaceWithTrainingUserSet:numberOfSubjects matchAgainst:jpgPath];
-            // Remove the image directories
+
+        [self tryMatchFaceWithTrainingUserSet:numberOfSubjects matchAgainst:jpgPath];
+        [self.previewLayer.session stopRunning];
+//        [self teardownAVCapture];
+
+        // Remove the image directories
 //            [fm removeItemAtPath:userDir1 error:nil];
 //            [fm removeItemAtPath:userDir2 error:nil];
-            [((UIButton *)[self.view viewWithTag:10002]) setTitle:@"Recognize" forState:UIControlStateNormal];
-//        }
+        [((UIButton *)[self.view viewWithTag:10002]) setTitle:@"Recognize" forState:UIControlStateNormal];
 
     }
 
