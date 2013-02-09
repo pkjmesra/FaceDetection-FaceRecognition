@@ -112,8 +112,8 @@
     [[NSFileManager defaultManager] removeItemAtPath:userDir error:nil];
 
     FaceRecognitionViewController *viewController = [[FaceRecognitionViewController alloc] initWithNibName:@"LiveFeedViewController" bundle:nil];
-    [self.navigationController pushViewController:viewController animated:YES];
     viewController.mode = Training;
+    [self.navigationController pushViewController:viewController animated:YES];
 
 }
 
@@ -158,6 +158,7 @@
     [btnRecognition setBackgroundColor:[UIColor redColor]];
     [btnRecognition addTarget:self action:@selector(tryStaticRecognition:) forControlEvents:UIControlEventTouchUpInside];
 //    [btnRecognition setTransform:CGAffineTransformMakeScale(1, -1)];
+    [btnRecognition setEnabled:NO];
 
 }
 

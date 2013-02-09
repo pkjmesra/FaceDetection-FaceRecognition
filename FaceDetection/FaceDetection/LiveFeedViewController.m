@@ -297,21 +297,24 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     [btn setBackgroundColor:[UIColor redColor]];
     [btn addTarget:self action:@selector(doneLiveFeed:) forControlEvents:UIControlEventTouchUpInside];
 
-    // Train/recognise button
-    UIButton *btnTrain = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +60, self.view.frame.origin.y + 60, 80, 40)];
-    [btnTrain setTitle:@"Training..." forState:UIControlStateNormal];
-    [btnTrain setTag:10001];
-    [self.view addSubview:btnTrain];
-    [btnTrain setBackgroundColor:[UIColor redColor]];
-    [btnTrain addTarget:self action:@selector(trainForRecognition:) forControlEvents:UIControlEventTouchUpInside];
+    if (self.mode != Detection)
+    {
+        // Train/recognise button
+        UIButton *btnTrain = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +60, self.view.frame.origin.y + 60, 80, 40)];
+        [btnTrain setTitle:@"Training..." forState:UIControlStateNormal];
+        [btnTrain setTag:10001];
+        [self.view addSubview:btnTrain];
+        [btnTrain setBackgroundColor:[UIColor redColor]];
+        [btnTrain addTarget:self action:@selector(trainForRecognition:) forControlEvents:UIControlEventTouchUpInside];
 
-    UIButton *btnRecognise = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +145, self.view.frame.origin.y + 60, 90, 40)];
-    [btnRecognise setTitle:@"Recognize" forState:UIControlStateNormal];
-    [btnRecognise setTag:10002];
-    [self.view addSubview:btnRecognise];
-    [btnRecognise setBackgroundColor:[UIColor redColor]];
-    [btnRecognise addTarget:self action:@selector(recognize:) forControlEvents:UIControlEventTouchUpInside];
-
+        UIButton *btnRecognise = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +145, self.view.frame.origin.y + 60, 90, 40)];
+        [btnRecognise setTitle:@"Recognize" forState:UIControlStateNormal];
+        [btnRecognise setTag:10002];
+        [self.view addSubview:btnRecognise];
+        [btnRecognise setBackgroundColor:[UIColor redColor]];
+        [btnRecognise addTarget:self action:@selector(recognize:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
     UIButton *btnSwitch = [[UIButton alloc] initWithFrame:CGRectMake(self.view.frame.origin.x +240, self.view.frame.origin.y + 60, 60, 40)];
     [btnSwitch setTitle:@"Switch" forState:UIControlStateNormal];
     [btnSwitch setTag:10003];
