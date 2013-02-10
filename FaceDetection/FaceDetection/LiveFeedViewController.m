@@ -687,6 +687,7 @@ orientation:(UIDeviceOrientation)orientation
 //            [fm removeItemAtPath:userDir1 error:nil];
 //            [fm removeItemAtPath:userDir2 error:nil];
         [((UIButton *)[self.view viewWithTag:10002]) setTitle:@"Recognize" forState:UIControlStateNormal];
+        [self doneLiveFeed:nil];
 
     }
 
