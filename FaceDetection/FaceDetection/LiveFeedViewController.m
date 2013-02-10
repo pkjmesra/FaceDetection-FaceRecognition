@@ -285,6 +285,7 @@ static CGFloat DegreesToRadians(CGFloat degrees) {return degrees * M_PI / 180;};
     [((UIButton *)[self.view viewWithTag:10002]) setTitle:@"Hold on..." forState:UIControlStateNormal];
     // Overridden?
     self.mode = Recognition;
+    [self.previewLayer.session stopRunning];
 }
 
 -(void) addBackButton
@@ -657,6 +658,7 @@ orientation:(UIDeviceOrientation)orientation
     }
     else if (self.mode == Recognition)
     {
+        [self.previewLayer.session stopRunning];
         // Let's get started with recognition
         self.mode = Detection;
 
@@ -678,7 +680,7 @@ orientation:(UIDeviceOrientation)orientation
         [UIImageJPEGRepresentation(image, 1.0) writeToFile:jpgPath atomically:YES];
 
         [self tryMatchFaceWithTrainingUserSet:numberOfSubjects matchAgainst:jpgPath];
-        [self.previewLayer.session stopRunning];
+
 //        [self teardownAVCapture];
 
         // Remove the image directories

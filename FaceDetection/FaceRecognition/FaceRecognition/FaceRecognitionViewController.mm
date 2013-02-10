@@ -94,7 +94,7 @@
     if (predicted >0)
     {
         UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"A match was found!"
-                                                            message:[NSString stringWithFormat:@"Match found in %d (th)", predicted]
+                                                            message:[NSString stringWithFormat:@"Match found in %@", [self positionFromPrediction:predicted]]
                                                            delegate:nil
                                                   cancelButtonTitle:@"Dismiss"
                                                   otherButtonTitles:nil];
@@ -118,6 +118,28 @@
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+-(NSString *)positionFromPrediction:(int)predicted
+{
+    NSString *position =[NSString stringWithFormat:@"%dth",predicted];
+
+    switch (predicted) {
+        case 1:
+            position =@"1st";
+            break;
+
+        case 2:
+            position =@"2nd";
+            break;
+        case 3:
+            position =@"3rd";
+            break;
+
+        default:
+            break;
+    }
+    return position;
 }
 
 @end
